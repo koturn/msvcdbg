@@ -7,6 +7,11 @@
  */
 #include <crtdbg.h>
 
+#define MSVCDBG_NEW  new(_NORMAL_BLOCK, __FILE__, __LINE__)
+#ifdef MSVCDBG_REPLACE_NEW
+#  define new  MSVCDBG_NEW
+#endif
+
 
 static void
 __msvc_init_memory_check__(void);
